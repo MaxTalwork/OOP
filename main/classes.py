@@ -1,3 +1,5 @@
+# создаём классы Категория и Продукт.
+# Для класса Категория вводим счётчик числа категорий и уникальных продуктов
 class Category:
 
     name: str
@@ -7,7 +9,6 @@ class Category:
     categories_counter: int
     products_set: set
     products_counter: int
-
 
     categories_set = set()
     categories_counter = 0

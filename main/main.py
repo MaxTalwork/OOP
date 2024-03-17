@@ -1,3 +1,4 @@
+# импортировали функции
 from functions import load_products, get_category, get_product
 from classes import Category
 
@@ -6,6 +7,7 @@ products_info = load_products()
 index = 0
 product_index = 0
 
+# создали экземпляры класса "Категория" и "Продукт"
 ex1 = get_category(products_info, 0)
 ex2 = get_category(products_info, 1)
 
