@@ -24,6 +24,15 @@ class Category:
         Category.categories_set.add(self.name)
         Category.categories_counter = len(Category.categories_set)
 
+    # def add_products(self):
+    #     """ принимает на вход объект товара и добавляет его в список """
+    #     new_product = {}
+    #     new_product["name"] = input("Название товара: ")
+    #     new_product["description"] = input("Описание товара: ")
+    #     new_product["price"] = input("Цена товара: ")
+    #     new_product["quantity"] = input("Количество товара: ")
+    #     self.products.insert(new_product)
+    #
         products_names = []
         index = 0
         for products_name in range(len(self.products)):
@@ -35,8 +44,8 @@ class Category:
         Category.products_set.update(products_set)
         Category.products_counter = len(Category.products_set)
 
-    # def __repr__(self):
-    #     return f"{self.name}, {self.description}, {self.products}"
+    def __repr__(self):
+        return f"{self.name}, {self.description}, {self.products}"
 
 
 class Product:
@@ -45,6 +54,7 @@ class Product:
     price: float
     quantity: int
 
+
     def __init__(self, name, description, price, quantity):
 
         self.name = name
@@ -52,5 +62,18 @@ class Product:
         self.price = price
         self.quantity = quantity
 
-    # def __repr__(self):
-    #     return f"{self.name}, {self.description}, {self.price}, {self.quantity}"
+    def __repr__(self):
+        return f"{self.name}, {self.description}, {self.price}, {self.quantity}"
+
+    def get_product(self):
+        """Метод, который возвращает продукт ."""
+        prod_dic = {}
+        prod_dic['name'] = self.name
+        prod_dic['description'] = self.description
+        prod_dic['price'] = self.price
+        prod_dic['quantity'] = self.quantity
+        return prod_dic
+
+
+    def __repr__(self):
+        return f"{self.name}, {self.description}, {self.price}, {self.quantity}"
