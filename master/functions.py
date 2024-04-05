@@ -21,11 +21,3 @@ def get_category_full_list(load_products, full_list):
             category.products.append(product)
             full_list.append(category)
     return full_list
-
-def get_product(name, description, price, quantity):
-    new_prod = {}
-    new_prod['name'] = name
-    new_prod['description'] = description
-    new_prod['price'] = price
-    new_prod['quantity'] = quantity
-    return new_prod
