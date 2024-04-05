@@ -18,4 +18,4 @@ def test_get_category_full_list():
              {"name": "Xiaomi Redmi Note 11",
               "description": "1024GB, Синий",
               "price": 31000.0,
-              "quantity": 14}]}], [])) == 3
+              "quantity": 14}]}])) == 1

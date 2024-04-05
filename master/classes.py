@@ -6,8 +6,8 @@ class Product:
         self.price = price
         self.quantity = quantity
 
-    # def __repr__(self):
-    #     return f"!{self.name}, {self.description}, {self.price}, {self.quantity}!"
+    def __repr__(self):
+        return f"{self.name}, {self.description}, {self.price}, {self.quantity}"
 
 
 class Category:
@@ -28,5 +28,5 @@ class Category:
             Category.products_set.add(x.name)
         Category.products_counter = len(Category.products_set)
 
-    # def __repr__(self):
-    #     return f"{self.name}, {self.description}, {self.products}"
+    def __repr__(self):
+        return f"{self.name}, {self.description}, {self.products}"
