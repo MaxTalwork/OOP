@@ -22,15 +22,13 @@ def get_category_full_list(all_products):
             pr_list.append(product)
         category = Category(name=data['name'], description=data['description'], products=pr_list)
         category_list.append(category)
-        add_new_prod_check = input(f'Хотите добавить новый товар в категорию {category.name}?')
+        add_new_prod_check = input(f"Хотите добавить новый товар в категорию {category.name}?"
+                                   f"\nВведите \"yes\" для подтверждения: ")
         if add_new_prod_check == 'yes':
-            # for pr in pr_list:
-            #     if pr['name'] in pr_list:
-            #
-            pr_list.append(add_new_prod(pr_list))
+            pr_list.append(add_new_prod())
             category = Category(name=data['name'], description=data['description'], products=pr_list)
             category_list.append(category)
-    add_new_prod_cat = input(f'Хотите добавить новую категорию и товар в неё?')
+    add_new_prod_cat = input(f'Хотите добавить новую категорию и товар в неё?\n Введите "yes" для подтверждения: ')
     if add_new_prod_cat == 'yes':
         pr_list = []
         new_cat_name, new_cat_dis, pr_list = get_new_category(pr_list)
@@ -39,7 +37,7 @@ def get_category_full_list(all_products):
     return category_list
 
 
-def add_new_prod(pr_list):
+def add_new_prod():
     new_p = Product.new_prod(
         name=input('Название товара: '),
         description=input('Описание товара: '),
@@ -58,12 +56,3 @@ def get_new_category(pr_list):
         quantity=int(input('Количество товара: ')))
     pr_list.append(new_p)
     return new_cat_name, new_cat_dis, pr_list
-
-
-def getter_pr(function):
-    def inner(*args, **kwargs):
-        result = function(*args, **kwargs)
-        print('result =', result)
-        return result
-
-    return inner

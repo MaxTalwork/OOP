@@ -4,12 +4,12 @@ class Product:
     def __init__(self, name: str, description: str, price: float, quantity: int):
         self.name = name
         self.description = description
-        self._price = price
+        self.price = price
         self.quantity = quantity
 
         Product.all_products.append(dict(name=self.name,
                                          description=self.description,
-                                         _price=self._price,
+                                         price=self.price,
                                          quantity=self.quantity))
 
     @classmethod
@@ -23,12 +23,19 @@ class Product:
     @property
     def get_price(self):
         if self.price <= 0:
-            print('Введена некорректнаяцена цена')
-            return self.price
+            return f'Введена некорректная цена: {self.price} руб!'
+        else:
+            return f'Цена товара: {self.price}'
 
     @get_price.setter
     def get_price(self, new_price):
-        self.price = new_price
+        if new_price < self.price:
+            answer = input('Вы уверены, что хотите снизить цену на товар?\nВведите "y" для подтверждения ')
+            if answer == 'y':
+                self.price = new_price
+        else:
+            print('Установлена новая цена!')
+            self.price = new_price
 
     @get_price.deleter
     def get_price(self):
@@ -60,7 +67,7 @@ class Category:
     def get_products(self):
         prod_list_format = []
         for prod in self.__products:
-            prod_list_format.append(f'{prod.name}, {prod._price} руб. Остаток: {prod.quantity} шт.')
+            prod_list_format.append(f'{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт.')
         return prod_list_format
 
     def __repr__(self):
