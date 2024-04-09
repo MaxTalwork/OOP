@@ -64,6 +64,7 @@ class Category:
             Category.products_set.add(x.name)
         Category.products_counter = len(Category.products_set)
 
+    @property
     def get_products(self):
         prod_list_format = []
         for prod in self.__products:

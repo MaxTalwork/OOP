@@ -5,7 +5,7 @@ loaded_products = load_products()
 category_list = get_category_full_list(loaded_products)
 
 for category in category_list:
-    print(category.name, category.description, category.get_products())
+    print(category.name, category.description, category.get_products)
     print(f'Общее количество категорий: {Category.categories_counter}')
     print(f'Общее количество уникальных продуктов: {Category.products_counter}')
 
