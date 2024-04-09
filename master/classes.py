@@ -6,6 +6,7 @@ class Product:
         self.description = description
         self.price = price
         self.quantity = quantity
+        self.full_cost = self.price * self.quantity
 
         Product.all_products.append(dict(name=self.name,
                                          description=self.description,
@@ -42,8 +43,14 @@ class Product:
         print('Delete price!')
         self.price = None
 
-    def __repr__(self):
-        return f"{self.name}, {self.description}, {self.price}, {self.quantity}"
+    def __add__(self, other):
+        return self.full_cost + other.full_cost
+
+    # def __repr__(self):
+    #     return f"{self.name}, {self.description}, {self.price}, {self.quantity}"
+
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
 
 class Category:
@@ -61,14 +68,36 @@ class Category:
         Category.categories_counter = len(Category.categories_set)
 
         for x in self.__products:
-            Category.products_set.add(x.name)
+            Category.products_set.add(x)
         Category.products_counter = len(Category.products_set)
 
+    @property
     def get_products(self):
         prod_list_format = []
         for prod in self.__products:
-            prod_list_format.append(f'{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт.')
+            prod_list_format.append(prod)
+            # prod_list_format.append(f'{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт.')
         return prod_list_format
 
-    def __repr__(self):
-        return f"{self.name}, {self.description}, {self.__products}"
+    # def __repr__(self):
+    #     return f"{self.name}, {self.description}, {self.__products}"
+
+    def __len__(self):
+        return len(self.__products)
+
+    def __str__(self):
+        return f"{self.name}, количество продуктов: {len(self.__products)}"
+
+
+class CategoryIter:
+    def __init__(self, category):
+        self.category = category
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        pr_list = []
+        for pr in self.category.get_products:
+            pr_list.append(pr)
+        return pr_list
