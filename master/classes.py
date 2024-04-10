@@ -101,3 +101,21 @@ class CategoryIter:
         for pr in self.category.get_products:
             pr_list.append(pr)
         return pr_list
+
+
+class Smartphone(Product):
+
+    def __init__(self, name, description, price, quantity, performance, model, amount_memory, color):
+        super().__init__(name, description, price, quantity)
+        self.performance = performance
+        self.model = model
+        self.amount_memory = amount_memory
+        self.color = color
+
+
+class Grass(Product):
+    def __init__(self, name, description, price, quantity, manufacturer_country, germination_period, color):
+        super().__init__(name, description, price, quantity)
+        self.manufacturer_country = manufacturer_country
+        self.germination_period = germination_period
+        self.color = color
