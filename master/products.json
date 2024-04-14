@@ -34,5 +34,17 @@
         "quantity": 7
       }
     ]
+  },
+  {
+    "name": "Трава",
+    "description": "Газонная трава",
+    "products": [
+      {
+        "name": "Канада грин",
+        "description": "Зелёная-зелёная",
+        "price": 1000.33,
+        "quantity": 100
+      }
+    ]
   }
 ]
