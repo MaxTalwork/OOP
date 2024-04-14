@@ -1,6 +1,6 @@
 import pytest
 from master.functions import get_category_full_list
-from master import classes
+from master import class_Category
 
 
 @pytest.fixture

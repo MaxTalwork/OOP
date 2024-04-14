@@ -33,8 +33,9 @@ def get_category_full_list(all_products):
     add_new_prod_cat = input(f'Хотите добавить новую категорию и товар в неё?\nВведите "yes" для подтверждения: ')
     if add_new_prod_cat == 'yes':
         pr_list = []
-        if isinstance(add_new_prod(), Product):
-            pr_list.append(add_new_prod)
+        new_pr = add_new_prod()
+        if isinstance(new_pr, Product):
+            pr_list.append(new_pr)
             new_cat_name, new_cat_dis = get_new_category()
             category = Category(new_cat_name, new_cat_dis, pr_list)
             category_list.append(category)
@@ -42,11 +43,10 @@ def get_category_full_list(all_products):
 
 
 def add_new_prod():
-    new_p = Product.new_prod(
-        name=input('Название товара: '),
-        description=input('Описание товара: '),
-        price=float(input('Цена товара: ')),
-        quantity=int(input('Количество товара: ')))
+    new_p = Product.new_prod(name=input('Название товара: '),
+                             description=input('Описание товара: '),
+                             price=float(input('Цена товара: ')),
+                             quantity=int(input('Количество товара: ')))
     return new_p
 
 
