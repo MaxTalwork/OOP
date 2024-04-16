@@ -1,6 +1,6 @@
 import json
-from master.class_Category import Category
-from master.class_Product import Product
+from master.classes.Category import Category
+from master.classes.Product import Product
 
 
 def load_products():  # pragma: no cover
@@ -21,7 +21,7 @@ def get_category_full_list(all_products):
         for prod_data in data['products']:
             product = Product(**prod_data)
             if isinstance(product, Product):
-                pr_list.append(str(product))
+                pr_list.append(product)
         category = Category(name=data['name'], description=data['description'], products=pr_list)
         category_list.append(category)
         add_new_prod_check = input(f"Хотите добавить новый товар в категорию {category.name}?"
