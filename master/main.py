@@ -1,17 +1,18 @@
 from master.functions import load_products, get_category_full_list
-from master.class_Product import Product
-from master.class_Category import Category
-from master.class_Smartphone import Smartphone
-from master.class_Grass import Grass
+from master.classes.Product import Product
+from master.classes.Category import Category, CategoryIter
+from master.classes.Smartphone import Smartphone
+from master.classes.Grass import Grass
 
 loaded_products = load_products()
 category_list = get_category_full_list(loaded_products)
 
 for category in category_list:
-    print(category.name, category.description, category.get_products)
-    print(category)
-    print(f'Общее количество категорий: {Category.categories_counter}')
-    print(f'Общее количество уникальных продуктов: {Category.products_counter}')
+    category_iterator = CategoryIter(category)
+    for product in category_iterator:
+        print(product)
+        print(f'Общее количество категорий: {Category.categories_counter}')
+        print(f'Общее количество уникальных продуктов: {Category.products_counter}')
 
 
 prod_1 = Product('qq', 'ww', 5, 1)
@@ -29,4 +30,3 @@ gr1 = Grass('pp', 'ooo', 122, 456, 'rtetret', 'fyftfy', 'ttuu')
 print(gr1)
 print(sm1+sm2)
 print(sm1+gr1)
-
