@@ -20,7 +20,7 @@ class Category:
         Category.products_counter = len(Category.products_set)
 
     @property
-    def get_products(self):
+    def products_new_format(self):
         prod_list_format = []
         for prod in self.__products:
             prod_list_format.append(str(prod))
@@ -45,7 +45,7 @@ class CategoryIter:
     def __init__(self, category):
         self.category_name = category.name
         self.category_description = category.description
-        self.category_products = category.get_products
+        self.category_products = category.products_new_format
 
     def __iter__(self):
         return self

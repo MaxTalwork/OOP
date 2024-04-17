@@ -1,6 +1,7 @@
 import json
 from master.classes.category import Category
 from master.classes.product import Product
+# from master.classes.abstract_product import AbstractProduct
 
 
 def load_products():  # pragma: no cover
@@ -41,7 +42,7 @@ def get_category_full_list(all_products):
 
 
 def add_new_prod():
-    new_p = Product.new_prod(name=input('Название товара: '),
+    new_p = Product(name=input('Название товара: '),
                              description=input('Описание товара: '),
                              price=float(input('Цена товара: ')),
                              quantity=int(input('Количество товара: ')))

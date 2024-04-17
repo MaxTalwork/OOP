@@ -13,17 +13,18 @@ class Product(AbstractProduct, MixinProduct):
         self.full_cost = self.__price * self.quantity
 
         Product.all_products.append(self)
+        super().__init__()
 
     @classmethod
-    def new_prod(cls, name, description, price, quantity):
-        return cls(name, description, price, quantity)
+    def new_prod(cls, *args):
+        return cls(*args)
 
     @property
-    def get_price(self):
+    def price(self):
         return self.__price
 
-    @get_price.setter
-    def get_price(self, new_price):
+    @price.setter
+    def price(self, new_price):
         if self.__price <= 0:
             self.__price = f'Введена некорректная цена: {self.__price} руб!'
         elif new_price < self.__price:
@@ -36,16 +37,15 @@ class Product(AbstractProduct, MixinProduct):
             print('Установлена новая цена!')
             self.__price = new_price
 
-    @get_price.deleter
-    def get_price(self):
+    @price.deleter
+    def price(self):
         print('Delete price!')
         self.__price = None
 
     def __add__(self, other):
         if type(self) is type(other):
             return self.full_cost + other.full_cost
-        else:
-            return f'Ошибка, это разные классы продуктов'
+        print('Ошибка, это разные классы продуктов')
 
     # def __repr__(self):
     #     return f"{self.name}, {self.description}, {self.__price}, {self.quantity}"
