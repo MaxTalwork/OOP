@@ -1,5 +1,5 @@
 import pytest
-from master.classes.Grass import Grass
+from master.classes.grass import Grass
 
 
 @pytest.fixture

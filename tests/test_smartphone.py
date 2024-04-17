@@ -1,5 +1,5 @@
 import pytest
-from master.classes.Smartphone import Smartphone
+from master.classes.smartphone import Smartphone
 
 
 @pytest.fixture

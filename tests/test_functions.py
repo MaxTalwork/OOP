@@ -1,6 +1,6 @@
 import pytest
-from master.classes.Product import Product
-from master.classes.Category import Category
+from master.classes.product import Product
+from master.classes.category import Category
 
 
 @pytest.fixture

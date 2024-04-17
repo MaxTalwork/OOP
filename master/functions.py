@@ -1,6 +1,6 @@
 import json
-from master.classes.Category import Category
-from master.classes.Product import Product
+from master.classes.category import Category
+from master.classes.product import Product
 
 
 def load_products():  # pragma: no cover

@@ -1,8 +1,8 @@
 from master.functions import load_products, get_category_full_list
-from master.classes.Product import Product
-from master.classes.Category import Category, CategoryIter
-from master.classes.Smartphone import Smartphone
-from master.classes.Grass import Grass
+from master.classes.product import Product
+from master.classes.category import Category, CategoryIter
+from master.classes.smartphone import Smartphone
+from master.classes.grass import Grass
 
 loaded_products = load_products()
 category_list = get_category_full_list(loaded_products)

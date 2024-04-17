@@ -1,5 +1,5 @@
-from master.classes.Product import Product
-from master.classes.MixinProduct import MixinProduct
+from master.classes.product import Product
+from master.classes.mixin_product import MixinProduct
 
 
 class Smartphone(Product, MixinProduct):
