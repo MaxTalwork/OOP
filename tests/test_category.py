@@ -17,7 +17,7 @@ def test_init_category(category_test, product_test1):
 
 def test_get_products(category_test, product_test1):
     test_cat = category_test
-    assert test_cat.get_products == [str(product_test1)]
+    assert test_cat.products_new_format == [str(product_test1)]
 
 
 def test_category_counter(category_test):

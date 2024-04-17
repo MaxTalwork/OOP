@@ -1,11 +1,7 @@
 class MixinProduct:
 
-    def __init__(self, name: str, description: str, price: float, quantity: int):
-        super().__init__()
-        self.name = name
-        self.description = description
-        self.price = price
-        self.quantity = quantity
+    def __init__(self, *args):
+        print(repr(self))
 
     def __repr__(self):  # pragma: no cover
-        return f'Был добавлен продукт {self.name}, {self.description}, {self.price}, {self.quantity}'
+        return f'Был добавлен продукт {self.__class__.__name__}, {tuple(self.__dict__.values())}'
