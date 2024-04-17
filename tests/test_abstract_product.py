@@ -1,5 +1,5 @@
 import pytest
-from master.classes.AbstractProduct import AbstractProduct
+from master.classes.abstract_product import AbstractProduct
 
 
 @pytest.fixture

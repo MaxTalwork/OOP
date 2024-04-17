@@ -1,5 +1,5 @@
-from master.classes.AbstractProduct import AbstractProduct
-from master.classes.MixinProduct import MixinProduct
+from master.classes.abstract_product import AbstractProduct
+from master.classes.mixin_product import MixinProduct
 
 
 class Product(AbstractProduct, MixinProduct):

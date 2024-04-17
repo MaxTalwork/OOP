@@ -1,5 +1,5 @@
 import pytest
-from master.classes.Product import Product
+from master.classes.product import Product
 
 
 @pytest.fixture

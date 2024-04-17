@@ -1,3 +1,6 @@
+from master.classes.product import Product
+
+
 class Category:
     categories_set = set()
     categories_counter = 0
@@ -28,6 +31,11 @@ class Category:
 
     def __len__(self):
         return len(self.__products)
+
+    def __add__(self, other):
+        for p in self.__products:
+            if isinstance(p, Product) is False:
+                return f'Объект в списке продуктов не относится к классу продуктов'
 
     def __str__(self):
         return f"{self.name}, количество продуктов: {len(self.__products)}"
