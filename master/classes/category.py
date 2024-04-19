@@ -11,6 +11,8 @@ class Category:
         self.name = name
         self.description = description
         self.__products = products
+        self.full_cost = 0
+        self.prod_number = 0
 
         Category.categories_set.add(self.name)
         Category.categories_counter = len(Category.categories_set)
@@ -36,6 +38,17 @@ class Category:
         for p in self.__products:
             if isinstance(p, Product) is False:
                 return f'Объект в списке продуктов не относится к классу продуктов'
+
+    def average_price(self):
+        for p in self.__products:
+            self.full_cost += p.price
+            self.prod_number += 1
+        try:
+            average_price = self.full_cost / self.prod_number
+        except ZeroDivisionError:
+            average_price = 0
+            return average_price
+        return average_price
 
     def __str__(self):
         return f"{self.name}, количество продуктов: {len(self.__products)}"
