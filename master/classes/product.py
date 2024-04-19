@@ -1,5 +1,6 @@
 from master.classes.abstract_product import AbstractProduct
 from master.classes.mixin_product import MixinProduct
+from master.classes.my_exception import ZeroValueError, ShellException
 
 
 class Product(AbstractProduct, MixinProduct):
@@ -9,7 +10,10 @@ class Product(AbstractProduct, MixinProduct):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity == 0:
+            raise ZeroValueError
+        else:
+            self.quantity = quantity
         self.full_cost = self.__price * self.quantity
 
         Product.all_products.append(self)
