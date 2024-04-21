@@ -18,7 +18,7 @@ class ShebangEmpty(MyException):
 
 class ZeroValueError(MyException):
     def __init__(self, *args, **kwargs):
-        self.message = args[0] if args else 'Кол-во товара равно 0!'
+        self.message = args[0] if args else 'Кол-во товара не должно быть равно 0!'
 
 
 class ShellException(MyException):
